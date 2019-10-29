@@ -1,5 +1,10 @@
 import mysql.connector
 from mysql.connector import errorcode
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
+x = []
+y = []
 
 try:
   cnx = mysql.connector.connect(host='localhost',
@@ -15,9 +20,25 @@ except mysql.connector.Error as err:
 else:
     mycursor = cnx.cursor()
 
-    mycursor.execute("SELECT * FROM teledyne_instrument")
+    
+    mycursor.execute("SELECT UTCTIME, SO2_PPB FROM teledyne_instrument LIMIT 720")
 
     myresult = mycursor.fetchall()
 
-    for x in myresult:
-        print(x)
+ 
+    for item in myresult:
+        x.append(str(item[0]))
+        y.append(item[1])
+
+
+    fig, ax = plt.subplots()
+    plt.plot(x,y, label='SO2 PPB')
+    for index, label in enumerate(ax.xaxis.get_ticklabels()):
+        if index % 50 != 0:
+            label.set_visible(False)
+    plt.xticks(x, x, rotation='vertical')
+    plt.xlabel('Time')
+    plt.ylabel('PPB')
+    plt.title('SO2 PPB')
+    plt.legend()
+    plt.show()
