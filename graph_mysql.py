@@ -5,7 +5,7 @@ import matplotlib.dates as mdates
 
 x = []
 y = []
-Z = []
+z = []
 
 try:
   cnx = mysql.connector.connect(host='localhost',
@@ -30,12 +30,12 @@ else:
     for item in myresult:
         x.append(str(item[0]))
         y.append(item[1])
-        Z.append(item[2])
+        z.append(item[2])
 
 
     fig, ax = plt.subplots()
     plt.plot(x,y, label='SO2 PPB')
-    plt.plot(x,y, label='TRS PPB')
+    plt.plot(x,z, label='TRS PPB')
     for index, label in enumerate(ax.xaxis.get_ticklabels()):
         if index % 50 != 0:
             label.set_visible(False)
