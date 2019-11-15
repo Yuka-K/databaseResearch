@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teledyne Instrument Concentration</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<header>
+    <h1>Teledyne Instrmment Concentration</h1>
+    <nav>
+        <ul class="nav_bar">
+            <li> <a href="tables.html" title="Links to the previous table page">Previous Tables</a></li>
+
+        </ul>
+      
+    </nav>
+</header>
+
+<main>
+
+    <section>
+        <img src="images/example1.png">
+    </section>
+
+    <footer>Created by Danielle Amundson and Yuka Katsuki: Contact us <a href="mailto:dlamundson@lcmail.lcsc.edu">Email</a></footer>
+
+</main>
+
+<?php
+    $host="127.0.0.1";
+    $port=3306;
+    $socket="";
+    $user="root";
+    $password="";
+    $dbname="database_research";
+
+    $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+        or die ('Could not connect to the database server' . mysqli_connect_error());
+
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+    echo "Connected successfully";
+?>
