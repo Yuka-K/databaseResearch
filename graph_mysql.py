@@ -7,6 +7,7 @@ x = []
 y = []
 z = []
 
+
 try:
   cnx = mysql.connector.connect(host='localhost',
                                 user='root',
@@ -22,7 +23,7 @@ else:
     mycursor = cnx.cursor()
 
     
-    mycursor.execute("SELECT UTCTIME, SO2_PPB, TRS_PPB FROM teledyne_instrument LIMIT 720")
+    mycursor.execute("SELECT UTCTIME, SO2_PPB, TRS_PPB, DATE1 FROM teledyne_instrument LIMIT 720")
 
     myresult = mycursor.fetchall()
 
@@ -33,6 +34,7 @@ else:
         z.append(item[2])
 
 
+    date = myresult[0][3]
     fig, ax = plt.subplots()
     plt.plot(x,y, label='SO2 PPB')
     plt.plot(x,z, label='TRS PPB')
@@ -42,7 +44,7 @@ else:
     plt.xticks(x, x, rotation='vertical')
     plt.xlabel('Time')
     plt.ylabel('PPB')
-    plt.title('SO2 PPB')
+    plt.title(date)
     plt.savefig("images/example1.png")
     plt.legend()
     plt.show()
