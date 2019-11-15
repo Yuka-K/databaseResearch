@@ -5,6 +5,7 @@ import matplotlib.dates as mdates
 
 x = []
 y = []
+Z = []
 
 try:
   cnx = mysql.connector.connect(host='localhost',
@@ -21,7 +22,7 @@ else:
     mycursor = cnx.cursor()
 
     
-    mycursor.execute("SELECT UTCTIME, SO2_PPB FROM teledyne_instrument LIMIT 720")
+    mycursor.execute("SELECT UTCTIME, SO2_PPB, TRS_PPB FROM teledyne_instrument LIMIT 720")
 
     myresult = mycursor.fetchall()
 
@@ -29,10 +30,12 @@ else:
     for item in myresult:
         x.append(str(item[0]))
         y.append(item[1])
+        Z.append(item[2])
 
 
     fig, ax = plt.subplots()
     plt.plot(x,y, label='SO2 PPB')
+    plt.plot(x,y, label='TRS PPB')
     for index, label in enumerate(ax.xaxis.get_ticklabels()):
         if index % 50 != 0:
             label.set_visible(False)
@@ -40,5 +43,6 @@ else:
     plt.xlabel('Time')
     plt.ylabel('PPB')
     plt.title('SO2 PPB')
+    plt.savefig("images/example1.png")
     plt.legend()
     plt.show()
