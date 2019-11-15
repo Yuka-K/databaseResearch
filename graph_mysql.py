@@ -45,6 +45,6 @@ else:
     plt.xlabel('Time')
     plt.ylabel('PPB')
     plt.title(date)
-    plt.savefig("images/example1.png")
+    plt.savefig("images/" + str(date) + ".png")
     plt.legend()
     plt.show()
