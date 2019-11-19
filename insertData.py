@@ -137,7 +137,7 @@ def insert():
 
             mycursor.execute(query)
             cnx.commit()   
-
+            remove(file)
 
 def main():
     convert()

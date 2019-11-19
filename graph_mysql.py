@@ -33,6 +33,7 @@ else:
       so2.append([])
       trs.append([])
       if(myresult[i][3] == myresult[i+1][3] and myresult[i+1][3]):
+        print(str(myresult[i][0]))
         time[count].append(str(myresult[i][0]))
         so2[count].append(myresult[i][1])
         trs[count].append(myresult[i][2])
@@ -48,8 +49,8 @@ else:
     time[count].append(str(myresult[len(myresult)-1][0]))
     so2[count].append(myresult[len(myresult)-1][1])
     trs[count].append(myresult[len(myresult)-1][2])
-    for i in range(len(time)):
-      print(len(time[i][0]))
+    #for i in range(len(time)):
+      #print(len(time[i]))
 
   
     tm = []
