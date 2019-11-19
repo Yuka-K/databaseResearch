@@ -1,0 +1,1 @@
+DROP TABLE 	teledyne_instrument;

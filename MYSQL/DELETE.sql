@@ -1,0 +1,1 @@
+DELETE FROM teledyne_instrument;
