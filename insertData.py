@@ -142,6 +142,8 @@ def insert():
 def main():
     convert()
     insert()
+    dir = "data/"
+    dir.rmdir()
 
 main()
  
