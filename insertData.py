@@ -1,6 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 from os import listdir, sep, remove
+from shutil import rmtree
 from os.path import isfile, join
 from glob import glob
  
@@ -142,8 +143,7 @@ def insert():
 def main():
     convert()
     insert()
-    dir = "data/"
-    dir.rmdir()
+    rmtree("data/*/", ignore_errors=True)
 
 main()
  

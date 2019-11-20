@@ -33,7 +33,6 @@ else:
       so2.append([])
       trs.append([])
       if(myresult[i][3] == myresult[i+1][3] and myresult[i+1][3]):
-        print(str(myresult[i][0]))
         time[count].append(str(myresult[i][0]))
         so2[count].append(myresult[i][1])
         trs[count].append(myresult[i][2])
@@ -51,8 +50,6 @@ else:
     trs[count].append(myresult[len(myresult)-1][2])
     #for i in range(len(time)):
       #print(len(time[i]))
-
-  
     tm = []
     s = []
     tr = []
@@ -62,6 +59,7 @@ else:
       for j in range(len(time[i])):
         fig, ax = plt.subplots()
         tm.append(time[i][j])
+        print(so2[i][j])
         s.append(so2[i][j])
         tr.append(trs[i][j])
       plt.plot(tm,s, label='SO2 PPB')
