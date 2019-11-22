@@ -6,7 +6,7 @@ from os.path import isfile, join
 from glob import glob
  
 def convert():
-        files = glob("data/drive-download-20191119T031320Z-001/**/*.txt")
+        files = glob("data/**/*.txt")
         #files = [f for f in listdir("data") if isfile(join("data", f))]
         for file in files:
             arr = []
@@ -130,7 +130,7 @@ def insert():
         else:
             print(err)
     else:
-        files = glob("data/drive-download-20191119T031320Z-001/**/*.txt")
+        files = glob("data/**/*.txt")
         for file in files:
             newPath = file.replace(sep, '/')
             query = "LOAD DATA INFILE 'C:/Users/kuuch/OneDrive/ドキュメント/GitHub/databaseResearch/%s' INTO TABLE teledyne_instrument FIELDS TERMINATED BY ' '  LINES TERMINATED BY '\n' IGNORE 1 LINES;" % (newPath,)

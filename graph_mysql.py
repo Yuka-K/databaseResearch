@@ -33,33 +33,33 @@ else:
       so2.append([])
       trs.append([])
       if(myresult[i][3] == myresult[i+1][3] and myresult[i+1][3]):
-        time[count].append(str(myresult[i][0]))
-        so2[count].append(myresult[i][1])
-        trs[count].append(myresult[i][2])
+        time[count].extend([str(myresult[i][0])])
+        so2[count].extend([myresult[i][1]])
+        trs[count].extend([myresult[i][2]])
       else: 
-        time[count].append(str(myresult[i][0]))
-        so2[count].append(myresult[i][1])
-        trs[count].append(myresult[i][2])
+        time[count].extend([str(myresult[i][0])])
+        so2[count].extend([myresult[i][1]])
+        trs[count].extend([myresult[i][2]])
         count += 1
         dates.append(myresult[i][3])
     time.append([])
     so2.append([])
     trs.append([])
-    time[count].append(str(myresult[len(myresult)-1][0]))
-    so2[count].append(myresult[len(myresult)-1][1])
-    trs[count].append(myresult[len(myresult)-1][2])
+    time[count].extend([str(myresult[len(myresult)-1][0])])
+    so2[count].extend([myresult[len(myresult)-1][1]])
+    trs[count].extend([myresult[len(myresult)-1][2]])
     #for i in range(len(time)):
       #print(len(time[i]))
     tm = []
     s = []
     tr = []
     plt.clf()
+    print(len(time))
     for i in range(len(time)):
       date_title = dates[i]
       for j in range(len(time[i])):
         fig, ax = plt.subplots()
         tm.append(time[i][j])
-        print(so2[i][j])
         s.append(so2[i][j])
         tr.append(trs[i][j])
       plt.plot(tm,s, label='SO2 PPB')
