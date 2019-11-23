@@ -2,6 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import numpy
 
 time = []
 so2 = []
@@ -32,7 +33,7 @@ else:
       time.append([])
       so2.append([])
       trs.append([])
-      if(myresult[i][3] == myresult[i+1][3] and myresult[i+1][3]):
+      if(myresult[i][3] == myresult[i+1][3]):
         time[count].extend([str(myresult[i][0])])
         so2[count].extend([myresult[i][1]])
         trs[count].extend([myresult[i][2]])
